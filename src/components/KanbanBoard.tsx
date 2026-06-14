@@ -15,7 +15,7 @@ import {
   horizontalListSortingStrategy,
   arrayMove,
 } from '@dnd-kit/sortable'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useBoardStore } from '../store'
 import type { CardItem } from '../types'
 import { KanbanColumn } from './KanbanColumn'
@@ -241,7 +241,7 @@ function KeyboardShortcuts({
   onToggleCollapseAll: () => void
   onFocusSearch: () => void
 }) {
-  useMemo(() => {
+  useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return
